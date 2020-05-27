@@ -1,0 +1,15 @@
+1、创建服务端Channel
+    调用jdk底层api，创建jdk Channel;
+    netty将其包装为自己的Channel，同时创建基本组件绑定在此 Channel 上面
+     bind（用户代码入口）->
+       initAndRegister（初始化并注册）->
+         newChannel（创建服务端的 Channel）
+
+
+2、 初始化服务端Channel
+    初始化基本属性，添加一些逻辑处理器
+3、 注册selector
+    netty将底层的Channel注册到事件轮询器Selector上面，并把netty的服务端channel
+    绑定到jdk底层的Channel
+4、 端口的绑定
+    调用jdk底层的api实现对端口的绑定
