@@ -31,7 +31,9 @@ public class Server {
         while (true) {
             try {
 //                .handler(new ServerHandler())
+                // Listens for a connection to be made to this socket and accept it
                 Socket client = serverSocket.accept();
+                //创建ClientHandler
                 new ClientHandler(client).start();
             } catch (IOException e) {
                 System.out.println("服务端异常");
